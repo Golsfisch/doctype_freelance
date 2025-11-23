@@ -91,3 +91,21 @@ footer {
     color: var(--muted);
     border-top: 1px solid rgba(255,255,255,0.05);
 }
+
+
+.rect-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #2dd4bf;
+    color: #062;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: 0.25s;
+}
+
+.rect-btn:hover {
+    background: #60a5fa;
+    transform: translateY(-3px);
+}
