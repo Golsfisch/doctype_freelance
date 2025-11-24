@@ -25,7 +25,189 @@
         <div class="btn-container">
             <a href="https://golsfisch.github.io/showcase_mordernwebsite/"   class="rect-btn">Link 1</a>
             <a href="https://golsfisch.github.io/golsfish-github.io-MWGroup/" class="rect-btn">Link 2</a>
-            <a href="DEIN-LINK-3" class="rect-btn">Link 3</a>
+            <a href="  <!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>One-Page App – Extended Version</title>
+
+<style>
+    /* ===== GLOBAL ===== */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+        transition: background 0.4s, color 0.4s;
+        padding-bottom: 50px;
+    }
+
+    /* ===== THEMES ===== */
+    body.theme-grey {
+        background: #ececec;
+        color: #222;
+    }
+    body.theme-ocean {
+        background: linear-gradient(to bottom right, #003b6f, #0ab0ff);
+        color: white;
+    }
+    body.theme-gold {
+        background: linear-gradient(to bottom right, #4b3b00, #e8d08c);
+        color: #1a1a1a;
+    }
+
+    /* ===== PAGE WRAPPER ===== */
+    .page {
+        display: none;
+        padding: 50px;
+        animation: fadeIn 0.35s ease;
+    }
+    .page.active {
+        display: block;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+        margin-bottom: 25px;
+        font-size: 36px;
+        font-weight: 700;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+        padding: 14px 22px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 10px 0;
+        font-size: 17px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+    .btn:hover {
+        transform: scale(1.04);
+        opacity: 0.9;
+    }
+    .btn-main { background: #444; color: white; }
+    .btn-back { background: #666; color: white; }
+
+    .btn-theme {
+        padding: 14px 30px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 20px;
+        display: block;
+        margin: 20px auto;
+        width: 250px;
+        font-weight: bold;
+    }
+
+    /* AAA BOX */
+    .aaa-box {
+        margin-top: 25px;
+        padding: 25px;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(6px);
+        border-radius: 15px;
+        border: 1px solid rgba(255,255,255,0.25);
+        font-size: 22px;
+        line-height: 1.8;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+</style>
+</head>
+
+<body class="theme-grey">
+
+<!-- ============================================= -->
+<!-- MAIN PAGE -->
+<!-- ============================================= -->
+<div id="page-main" class="page active">
+    <h1>Main Seite</h1>
+    <p>Willkommen! Wähle eine Aktion aus:</p>
+
+    <button class="btn btn-main" onclick="openPage('page-design')">🎨 Design-Einstellungen</button>
+    <button class="btn btn-main" onclick="openPage('page-1')">➡️ Seite 1</button>
+    <button class="btn btn-main" onclick="openPage('page-2')">➡️ Seite 2</button>
+    <button class="btn btn-main" onclick="openPage('page-3')">➡️ Seite 3</button>
+    <button class="btn btn-main" onclick="openPage('page-4')">➡️ Seite 4</button>
+</div>
+
+
+<!-- ============================================= -->
+<!-- DESIGN PAGE -->
+<!-- ============================================= -->
+<div id="page-design" class="page">
+    <h1>Design wählen</h1>
+
+    <button class="btn-theme" onclick="setTheme('grey')">Modern Grey</button>
+    <button class="btn-theme" onclick="setTheme('ocean')">Ocean Blue</button>
+    <button class="btn-theme" onclick="setTheme('gold')">Luxury Gold</button>
+
+    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
+</div>
+
+
+<!-- ============================================= -->
+<!-- AAA PAGES -->
+<!-- ============================================= -->
+
+<div id="page-1" class="page">
+    <h1>Seite 1</h1>
+    <div class="aaa-box">AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA</div>
+    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
+</div>
+
+<div id="page-2" class="page">
+    <h1>Seite 2</h1>
+    <div class="aaa-box">AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA</div>
+    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
+</div>
+
+<div id="page-3" class="page">
+    <h1>Seite 3</h1>
+    <div class="aaa-box">AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA</div>
+    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
+</div>
+
+<div id="page-4" class="page">
+    <h1>Seite 4</h1>
+    <div class="aaa-box">AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA</div>
+    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
+</div>
+
+
+<!-- ============================================= -->
+<!-- JAVASCRIPT -->
+<!-- ============================================= -->
+<script>
+/* PAGE SWITCHER */
+function openPage(pageId) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+}
+
+/* THEME SWITCHER */
+function setTheme(theme) {
+    document.body.className = "theme-" + theme;
+}
+</script>
+
+</body>
+</html>   " class="rect-btn">Link 3</a>
             <a href="DEIN-LINK-4" class="rect-btn">Link 4</a>
             <a href="DEIN-LINK-5" class="rect-btn">Link 5</a>
         </div>
