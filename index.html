@@ -1,245 +1,611 @@
-<!DOCTYPE html><html lang="de">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webdesign by Michael</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body><header>
-    <h1> thesafecode, safecode, S freelancer and Project Manager Webdesign & Webseiten-Aufbau</h1>
-    <p>Moderne, schnelle und klare Webseiten für jedes Projekt</p>
-</header>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TheSafe — NextGen Web Dev • Portfolio & Offers</title>
+<meta name="description" content="TheSafe — Professional Web & Webflow + Custom Code developer. Landing, portfolio, offers, banners.">
 
-<main>
-    <section class="intro">
-        <h2>Professioneller Webseiten-Aufbau</h2>
-        <p>Ich erstelle saubere, schnelle und stilvolle Webseiten. Perfekt für Unternehmen, Portfolio-Seiten und Online-Projekte.</p>
-    </section>
-
-    <section class="buttons-section">
-        <h2>Direkte Weiterleitungen</h2>
-        <p>Hier ein Beispielwebseite bei Link_1
-            Kosten für so eine Webseite 50
-            .</p>
-
-        <div class="btn-container">
-            <a href="https://golsfisch.github.io/showcase_mordernwebsite/"   class="rect-btn">Link 1</a>
-            <a href="https://golsfisch.github.io/golsfish-github.io-MWGroup/" class="rect-btn">Link 2</a>
-            <a href="  <!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>One-Page App – Extended Version</title>
-
+<!-- ========== STYLES (single-file) ========== -->
 <style>
-    /* ===== GLOBAL ===== */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Arial, sans-serif;
-    }
+  :root{
+    --bg:#0b0f14; --card:#0f1720; --muted:#9aa4b2;
+    --accent:#2dd4bf; --accent2:#60a5fa; --glass:rgba(255,255,255,0.03);
+    --radius:12px; --maxw:1200px; --text:#e6eef3;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,ui-sans-serif,system-ui,Arial;color:var(--text);background:linear-gradient(180deg,#071018,#061018 60%);}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:20px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#233,#345);display:flex;align-items:center;justify-content:center;font-weight:700}
+  .brand h1{font-size:1.25rem;margin:0}
+  .brand p{margin:0;font-size:.85rem;color:var(--muted)}
 
-    body {
-        transition: background 0.4s, color 0.4s;
-        padding-bottom: 50px;
-    }
+  nav{display:flex;gap:8px;align-items:center}
+  .btn{padding:.6rem .9rem;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text);cursor:pointer;font-weight:600}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#041;border:1px solid rgba(255,255,255,0.04)}
+  .btn-ghost{background:transparent}
 
-    /* ===== THEMES ===== */
-    body.theme-grey {
-        background: #ececec;
-        color: #222;
-    }
-    body.theme-ocean {
-        background: linear-gradient(to bottom right, #003b6f, #0ab0ff);
-        color: white;
-    }
-    body.theme-gold {
-        background: linear-gradient(to bottom right, #4b3b00, #e8d08c);
-        color: #1a1a1a;
-    }
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:28px 0}
+  .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:24px;border-radius:16px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 30px rgba(0,0,0,0.6)}
+  .hero h2{font-size:2rem;margin:0 0 .5rem}
+  .hero p{color:var(--muted);margin:0 0 12px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
 
-    /* ===== PAGE WRAPPER ===== */
-    .page {
-        display: none;
-        padding: 50px;
-        animation: fadeIn 0.35s ease;
-    }
-    .page.active {
-        display: block;
-    }
+  /* sections */
+  section{margin:22px 0}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{background:var(--card);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);}
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(15px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
+  /* skills */
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-size:.9rem;color:var(--muted)}
 
-    h1 {
-        margin-bottom: 25px;
-        font-size: 36px;
-        font-weight: 700;
-    }
-    p {
-        font-size: 18px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
+  /* packages table */
+  .packages{display:flex;gap:12px;align-items:stretch}
+  .pkg{flex:1;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+  .pkg h3{margin:0 0 8px}
+  .pkg ul{margin:8px 0 12px;padding-left:18px;color:var(--muted)}
+  .price{font-size:1.6rem;font-weight:800;color:var(--accent);}
 
-    /* ===== BUTTONS ===== */
-    .btn {
-        padding: 14px 22px;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-        margin: 10px 0;
-        font-size: 17px;
-        font-weight: bold;
-        transition: 0.2s;
-    }
-    .btn:hover {
-        transform: scale(1.04);
-        opacity: 0.9;
-    }
-    .btn-main { background: #444; color: white; }
-    .btn-back { background: #666; color: white; }
+  /* projects */
+  .proj-actions{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+  .proj-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .proj{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.02)}
+  .proj h4{margin:.2rem 0}
+  .badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;background:#111;color:var(--muted);font-size:.85rem}
 
-    .btn-theme {
-        padding: 14px 30px;
-        border: none;
-        border-radius: 12px;
-        cursor: pointer;
-        font-size: 20px;
-        display: block;
-        margin: 20px auto;
-        width: 250px;
-        font-weight: bold;
-    }
+  /* modal */
+  .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:9999}
+  .modal.open{display:flex}
+  .modal .panel{width:90%;max-width:760px;background:#071726;padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
 
-    /* AAA BOX */
-    .aaa-box {
-        margin-top: 25px;
-        padding: 25px;
-        background: rgba(255,255,255,0.15);
-        backdrop-filter: blur(6px);
-        border-radius: 15px;
-        border: 1px solid rgba(255,255,255,0.25);
-        font-size: 22px;
-        line-height: 1.8;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    }
+  /* forms */
+  label{display:block;font-size:.85rem;margin-bottom:6px;color:var(--muted)}
+  input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+  textarea{min-height:110px}
+
+  /* footer */
+  footer{padding:24px 0;text-align:center;color:var(--muted)}
+
+  /* responsive */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+    header{flex-direction:column;align-items:flex-start}
+  }
+
+  /* helper small */
+  .muted{color:var(--muted)}
+  .flex{display:flex;gap:12px;align-items:center}
+  .right{margin-left:auto}
+  .small{font-size:.85rem;padding:.4rem .6rem}
+  .pill{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03)}
+  .hr{height:1px;background:rgba(255,255,255,0.02);margin:12px 0;border-radius:2px}
 </style>
 </head>
+<body>
 
-<body class="theme-grey">
+<div class="wrap">
 
-<!-- ============================================= -->
-<!-- MAIN PAGE -->
-<!-- ============================================= -->
-<div id="page-main" class="page active">
-    <h1>Main Seite</h1>
-    <p>Willkommen! Wähle eine Aktion aus:</p>
+  <!-- HEADER -->
+  <header>
+    <div class="brand">
+      <div class="avatar" id="avatar">TS</div>
+      <div>
+        <h1>TheSafeCode</h1>
+        <p>@TheSafe — Professional Website Development</p>
+      </div>
+    </div>
 
-    <button class="btn btn-main" onclick="openPage('page-design')">🎨 Design-Einstellungen</button>
-    <button class="btn btn-main" onclick="openPage('page-1')">➡️ Seite 1</button>
-    <button class="btn btn-main" onclick="openPage('page-2')">➡️ Seite 2</button>
-    <button class="btn btn-main" onclick="openPage('page-3')">➡️ Seite 3</button>
-    <button class="btn btn-main" onclick="openPage('page-4')">➡️ Seite 4</button>
-</div>
+    <nav>
+      <button class="btn" data-nav="home">Home</button>
+      <button class="btn" data-nav="projects">Projects</button>
+      <button class="btn" data-nav="packages">Offers</button>
+      <button class="btn" data-nav="tools">Tools</button>
+      <button class="btn btn-primary" id="openContact">Contact</button>
+    </nav>
+  </header>
 
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-card">
+      <h2>Next-Gen Web Development & Custom Code</h2>
+      <p class="muted">High-performance websites, Webflow + Custom Code, secure integrations, and rapid delivery for startups & agencies.</p>
 
-<!-- ============================================= -->
-<!-- DESIGN PAGE -->
-<!-- ============================================= -->
-<div id="page-design" class="page">
-    <h1>Design wählen</h1>
+      <div class="cta-row">
+        <button class="btn-primary" id="getQuote">Get a Free Quote</button>
+        <button class="btn" id="viewPortfolio">View Portfolio</button>
+        <button class="btn" id="btnDownloadBanner">Download Webflow+Code Banner</button>
+      </div>
 
-    <button class="btn-theme" onclick="setTheme('grey')">Modern Grey</button>
-    <button class="btn-theme" onclick="setTheme('ocean')">Ocean Blue</button>
-    <button class="btn-theme" onclick="setTheme('gold')">Luxury Gold</button>
-
-    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
-</div>
-
-
-<!-- ============================================= -->
-<!-- AAA PAGES -->
-<!-- ============================================= -->
-
-<div id="page-1" class="page">
-    <h1>Angebot, GIG1</h1>
-    <div class="aaa-box">90</div>
-    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
-</div>
-
-<div id="page-2" class="page">
-    <h1>Angebot, GIG2</h1>
-    <div class="aaa-box">180</div>
-    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
-</div>
-
-<div id="page-3" class="page">
-    <h1>Seite 3</h1>
-    <div class="aaa-box">AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA</div>
-    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
-</div>
-
-<div id="page-4" class="page">
-    <h1>Seite 4</h1>
-    <div class="aaa-box">AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA AAA</div>
-    <button class="btn btn-back" onclick="openPage('page-main')">← Zurück</button>
-</div>
-
-
-<!-- ============================================= -->
-<!-- JAVASCRIPT -->
-<!-- ============================================= -->
-<script>
-/* PAGE SWITCHER */
-function openPage(pageId) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
-}
-
-/* THEME SWITCHER */
-function setTheme(theme) {
-    document.body.className = "theme-" + theme;
-}
-</script>
-
-</body>
-</html>   "thesafe "</a>
-            <a href=" https://golsfisch.github.io/landing_page/  " class="rect-btn">4 eng, landing page</a>
-            <a href="  https://golsfisch.github.io/title_list/"   class="rect-btn">5 eng, project's and future</a>
+      <div style="margin-top:18px">
+        <div class="tags" id="skillTags">
+          <!-- JS will populate tags -->
         </div>
-    </section>
+      </div>
+    </div>
 
+    <!-- right side quick stats / offers -->
+    <aside style="display:flex;flex-direction:column;gap:12px">
+      <div class="card">
+        <h3>Fast Offers</h3>
+        <p class="muted">Quick packages, clear scope, delivery in 24–72 hours for many tasks.</p>
+        <div style="margin-top:12px" class="flex">
+          <div class="pill">Avg delivery: 3 days</div>
+          <div class="pill">Satisfaction: 98%</div>
+        </div>
+      </div>
 
+      <div class="card">
+        <h3>Profile Banners</h3>
+        <p class="muted">Generate Fiverr/Freelancer banners & package visuals instantly.</p>
+        <div style="margin-top:12px" class="flex">
+          <button class="btn small" id="genBanner">Generate Gig Image</button>
+          <button class="btn small" id="genOffers">Generate Offers Image</button>
+        </div>
+      </div>
+    </aside>
+  </section>
 
-<!-- Button am Ende der Webseite -->
-<div style="text-align:center; margin:60px 0;">
-    <a href="seite2.html" 
-       style="
-           padding:14px 24px;
-           background:#222;
-           color:silver;
-           border:2px solid silver;
-           border-radius:8px;
-           text-decoration:none;
-           font-size:20px;
-           font-weight:600;
-           display:inline-block;
-       ">
-       Weiter zur nächsten Seite →
-    </a>
+  <!-- PACKAGES SECTION -->
+  <section id="packages" style="display:none">
+    <h2>Offer Packages</h2>
+    <p class="muted">Pick a package and customize it. Use the price calculator to estimate add-ons.</p>
+
+    <div class="packages" style="margin-top:12px">
+      <div class="pkg">
+        <h3>Basic</h3>
+        <ul>
+          <li>1 modern landing page</li>
+          <li>Responsive & SEO basics</li>
+          <li>1 revision</li>
+        </ul>
+        <div class="price">$<span id="priceBasic">80</span></div>
+        <div style="margin-top:12px">
+          <button class="btn-primary" onclick="selectOffer('Basic')">Order Basic</button>
+        </div>
+      </div>
+
+      <div class="pkg">
+        <h3>Standard</h3>
+        <ul>
+          <li>Up to 5 pages</li>
+          <li>Custom JS interactions</li>
+          <li>Performance & SEO</li>
+        </ul>
+        <div class="price">$<span id="priceStandard">350</span></div>
+        <div style="margin-top:12px">
+          <button class="btn-primary" onclick="selectOffer('Standard')">Order Standard</button>
+        </div>
+      </div>
+
+      <div class="pkg">
+        <h3>Premium</h3>
+        <ul>
+          <li>Full website / app module</li>
+          <li>API & DB integration</li>
+          <li>14 days support</li>
+        </ul>
+        <div class="price">$<span id="pricePremium">1200</span></div>
+        <div style="margin-top:12px">
+          <button class="btn-primary" onclick="selectOffer('Premium')">Order Premium</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <!-- Price calculator -->
+    <div class="card" style="margin-top:16px">
+      <h3>Price Calculator</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <label style="flex:1;min-width:220px">
+          Pages
+          <input type="number" id="calcPages" min="1" value="1"/>
+        </label>
+        <label style="flex:1;min-width:220px">
+          Features (dashboards/APIs)
+          <select id="calcFeatures">
+            <option value="0">None</option>
+            <option value="150">API Integration (+$150)</option>
+            <option value="350">Dashboard (+$350)</option>
+          </select>
+        </label>
+        <label style="flex:1;min-width:220px">
+          Priority Delivery (24–48h)
+          <select id="calcPriority">
+            <option value="0">No</option>
+            <option value="80">Yes (+$80)</option>
+          </select>
+        </label>
+      </div>
+
+      <div style="margin-top:12px" class="flex">
+        <div><strong>Estimate:</strong> $<span id="calcEstimate">0</span></div>
+        <div class="right"><button class="btn" id="calcBtn">Calculate</button></div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PROJECTS SECTION -->
+  <section id="projects" style="display:none">
+    <h2>Projects & Portfolio</h2>
+    <div class="proj-actions">
+      <button class="btn" onclick="openAddProject()">Add Project</button>
+      <input type="search" id="searchProj" placeholder="Search projects..." style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)">
+      <div class="right">
+        <button class="btn" onclick="exportProjects()">Export JSON</button>
+        <button class="btn" onclick="importDemo()">Import Demo</button>
+      </div>
+    </div>
+
+    <div class="proj-list" id="projList">
+      <!-- projects populated by JS -->
+    </div>
+  </section>
+
+  <!-- TOOLS / Utilities -->
+  <section id="tools" style="display:none">
+    <h2>Tools & Utilities</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Banner Generator</h3>
+        <p class="muted">Create Fiverr/Freelancer banners with your branding.</p>
+        <div style="margin-top:12px">
+          <input id="bannerText" placeholder="TheSafe — Pro Website Dev" style="padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);width:100%;background:transparent;color:var(--text)">
+          <div style="margin-top:8px" class="flex">
+            <button class="btn" id="createBanner">Create Banner</button>
+            <button class="btn" id="downloadBanner">Download Banner</button>
+          </div>
+          <canvas id="bannerCanvas" width="1200" height="400" style="margin-top:12px;border-radius:8px;background:#fff;display:block;width:100%;height:auto"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Quick Mock API (Local)</h3>
+        <p class="muted">Simulate fetching project data (mock API).</p>
+        <div style="margin-top:8px" class="flex">
+          <button class="btn" id="mockFetch">Fetch Demo Projects</button>
+          <button class="btn" id="clearLocal">Clear Local Data</button>
+        </div>
+        <pre id="mockLog" style="margin-top:8px;max-height:200px;overflow:auto;background:#020a0d;padding:8px;border-radius:8px;color:#9fd"></pre>
+      </div>
+
+      <div class="card">
+        <h3>Performance Check</h3>
+        <p class="muted">Run simple front-end performance snapshot (simulated).</p>
+        <div style="margin-top:12px">
+          <button class="btn" id="perfRun">Run Snapshot</button>
+          <div id="perfResult" style="margin-top:8px;color:var(--muted)"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="hr"></div>
+
+  <footer>
+    © 2025 TheSafeCode — Fast, Secure, Scalable • <span class="muted">Built with HTML/CSS/JS</span>
+  </footer>
+
 </div>
-</main>
 
-    
-    
-    
-    <footer>
-    <p>© @thesafe Webdesign</p>
-</footer>
+<!-- MODAL (for forms & adding projects) -->
+<div class="modal" id="modal">
+  <div class="panel" role="dialog" aria-modal="true">
+    <h3 id="modalTitle">New Project</h3>
+    <div id="modalBody">
+      <label>Title<input id="projTitle"></label>
+      <label>Description<textarea id="projDesc"></textarea></label>
+      <label>Tags (comma separated)<input id="projTags"></label>
+      <label>Status
+        <select id="projStatus">
+          <option value="done">Finished</option>
+          <option value="progress">In Progress</option>
+        </select>
+      </label>
+    </div>
+    <div style="margin-top:12px" class="flex">
+      <button class="btn" id="modalCancel">Cancel</button>
+      <div class="right"><button class="btn btn-primary" id="modalSave">Save</button></div>
+    </div>
+  </div>
+</div>
 
+<!-- ========== SCRIPTS (heavy JS as requested) ========== -->
+<script>
+/* ========= App Data & Utilities ========= */
+const SKILLS = [
+  'HTML5','CSS3','JavaScript (ES6)','Responsive Design','Webflow','Custom Code','API Integration',
+  'Performance Optimization','Accessibility (WCAG)','SEO Basics','UI/UX','E-commerce','AI Integration'
+];
+
+const DEFAULT_PROJECTS = [
+  {id:uid(),title:'AAA | Modern Landing Page',desc:'High-conversion landing with hero+cta',tags:['landing','ui'],status:'done'},
+  {id:uid(),title:'AAA | Automotive Showroom',desc:'Rally-style vehicle gallery',tags:['auto','gallery'],status:'done'},
+  {id:uid(),title:'AAA | Real Estate Portal',desc:'Property cards, filters, map',tags:['realestate'],status:'progress'}
+];
+
+function uid(){ return 'p_'+Math.random().toString(36).slice(2,9) }
+
+/* --------- Local Storage helpers --------- */
+const STORAGE_KEY = 'thesafe_projects_v1';
+function loadProjects(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(!raw) return [...DEFAULT_PROJECTS];
+    return JSON.parse(raw);
+  } catch(e){
+    console.error('loadProjects error',e);
+    return [...DEFAULT_PROJECTS];
+  }
+}
+function saveProjects(arr){
+  localStorage.setItem(STORAGE_KEY,JSON.stringify(arr));
+}
+
+/* ========= Render & UI ========= */
+const skillTagsEl = document.getElementById('skillTags');
+function renderSkills(){
+  skillTagsEl.innerHTML = '';
+  SKILLS.forEach(s=>{
+    const el = document.createElement('div'); el.className='tag'; el.innerText=s;
+    skillTagsEl.appendChild(el);
+  });
+}
+renderSkills();
+
+/* Navigation */
+const sections = ['home','projects','packages','tools'];
+function openSection(name){
+  sections.forEach(s=>{
+    const el = document.getElementById(s);
+    if(!el) return;
+    el.style.display = (s===name) ? (s==='home' ? 'grid' : 'block') : 'none';
+    // keep hero as grid if home
+    if(s==='home' && s===name) document.querySelector('.hero').style.display='grid';
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('button[data-nav]').forEach(btn=>{
+  btn.addEventListener('click', ()=> openSection(btn.dataset.nav));
+});
+openSection('home');
+
+/* Packages & calculator */
+document.getElementById('calcBtn').addEventListener('click', ()=>{
+  const pages = Number(document.getElementById('calcPages').value) || 1;
+  const feat = Number(document.getElementById('calcFeatures').value) || 0;
+  const pri = Number(document.getElementById('calcPriority').value) || 0;
+  // base price per page calculation
+  const basePerPage = 80;
+  const estimate = Math.round(basePerPage*pages + feat + pri);
+  document.getElementById('calcEstimate').innerText = estimate;
+});
+
+/* Offers ordering (demo) */
+function selectOffer(name){
+  alert(`You selected "${name}". A quote dialog will open (demo).`);
+  // open contact modal with prefilled message
+  openContactModal(`Interest in ${name} package`);
+}
+
+/* Contact / Quote */
+const contactModal = document.getElementById('modal');
+const modalTitle = document.getElementById('modalTitle');
+const modal = { el:contactModal, title:modalTitle, saveBtn:document.getElementById('modalSave'), cancelBtn:document.getElementById('modalCancel') };
+function openContactModal(pref=''){
+  modalTitle.innerText = 'Request / Quick Quote';
+  document.getElementById('projTitle').value = pref || '';
+  document.getElementById('projDesc').value = 'Please provide project details...';
+  document.getElementById('projTags').value = '';
+  document.getElementById('projStatus').value = 'progress';
+  contactModal.classList.add('open');
+}
+document.getElementById('openContact').addEventListener('click', ()=> openContactModal());
+modal.cancelBtn.addEventListener('click', ()=> contactModal.classList.remove('open'));
+modal.saveBtn.addEventListener('click', ()=> {
+  // Save quick request as project with tag 'lead'
+  const arr = loadProjects();
+  const p = { id: uid(), title: document.getElementById('projTitle').value || 'Quote Request', desc: document.getElementById('projDesc').value || '', tags: (document.getElementById('projTags').value||'').split(',').map(t=>t.trim()).filter(Boolean).concat('lead'), status:'progress' };
+  arr.unshift(p); saveProjects(arr); renderProjects(); contactModal.classList.remove('open');
+  alert('Quote saved locally (demo). We will contact you after review.');
+});
+
+/* Projects: render, add, edit, export */
+const projListEl = document.getElementById('projList');
+
+function renderProjects(filter=''){
+  const arr = loadProjects();
+  const q = filter.trim().toLowerCase();
+  projListEl.innerHTML = '';
+  const filtered = arr.filter(p => !q || p.title.toLowerCase().includes(q) || (p.tags||[]).join(' ').toLowerCase().includes(q) );
+  filtered.forEach(p=>{
+    const el = document.createElement('div'); el.className='proj';
+    el.innerHTML = `<div style="display:flex;gap:8px;align-items:center">
+      <div style="width:10px;height:10px;border-radius:999px;background:${p.status==='done'?'#2dd4bf':'#ffd166'}"></div>
+      <h4 style="margin:0">${escapeHtml(p.title)}</h4>
+    </div>
+    <p class="muted">${escapeHtml(p.desc)}</p>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+      ${(p.tags||[]).map(t=>`<span class="badge">${escapeHtml(t)}</span>`).join(' ')}
+      <div class="right">
+        <button class="btn small" onclick="openEdit('${p.id}')">Edit</button>
+        <button class="btn small" onclick="deleteProj('${p.id}')">Delete</button>
+      </div>
+    </div>`;
+    projListEl.appendChild(el);
+  });
+}
+renderProjects();
+
+/* add / edit project modal wiring */
+function openAddProject(){
+  modalTitle.innerText = 'Add Project';
+  document.getElementById('projTitle').value = '';
+  document.getElementById('projDesc').value = '';
+  document.getElementById('projTags').value = '';
+  document.getElementById('projStatus').value = 'progress';
+  contactModal.classList.add('open');
+}
+function openEdit(id){
+  const arr = loadProjects();
+  const p = arr.find(x=>x.id===id);
+  if(!p) return alert('Not found');
+  modalTitle.innerText = 'Edit Project';
+  document.getElementById('projTitle').value = p.title;
+  document.getElementById('projDesc').value = p.desc;
+  document.getElementById('projTags').value = (p.tags||[]).join(',');
+  document.getElementById('projStatus').value = p.status || 'progress';
+  contactModal.classList.add('open');
+  // override save behavior temporarily
+  modal.saveBtn.onclick = ()=>{
+    p.title = document.getElementById('projTitle').value;
+    p.desc = document.getElementById('projDesc').value;
+    p.tags = (document.getElementById('projTags').value||'').split(',').map(t=>t.trim()).filter(Boolean);
+    p.status = document.getElementById('projStatus').value;
+    saveProjects(arr); renderProjects(); contactModal.classList.remove('open');
+    // restore default
+    modal.saveBtn.onclick = defaultSave;
+  };
+}
+
+function defaultSave(){
+  const arr = loadProjects();
+  const p = { id: uid(), title: document.getElementById('projTitle').value || 'Untitled', desc: document.getElementById('projDesc').value || '', tags: (document.getElementById('projTags').value||'').split(',').map(t=>t.trim()).filter(Boolean), status: document.getElementById('projStatus').value || 'progress' };
+  arr.unshift(p); saveProjects(arr); renderProjects();
+}
+modal.saveBtn.addEventListener('click', defaultSave);
+
+function deleteProj(id){
+  if(!confirm('Delete project?')) return;
+  let arr = loadProjects(); arr = arr.filter(p=>p.id!==id); saveProjects(arr); renderProjects();
+}
+
+/* search */
+document.getElementById('searchProj').addEventListener('input', (e)=> renderProjects(e.target.value));
+
+/* export/import */
+function exportProjects(){
+  const data = localStorage.getItem(STORAGE_KEY) || JSON.stringify(DEFAULT_PROJECTS);
+  const blob = new Blob([data],{type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='projects.json'; a.click(); URL.revokeObjectURL(url);
+}
+function importDemo(){
+  if(!confirm('Import demo projects? This will append demo items.')) return;
+  const arr = loadProjects();
+  const copy = DEFAULT_PROJECTS.map(d=>({ ...d, id: uid() }));
+  saveProjects([...copy,...arr]);
+  renderProjects();
+}
+
+/* mock API fetch (simulate delay & logs) */
+document.getElementById('mockFetch').addEventListener('click', async ()=>{
+  const log = document.getElementById('mockLog');
+  log.innerText = 'Fetching...';
+  await sleep(800);
+  const data = DEFAULT_PROJECTS.map(d=>({id:d.id,title:d.title,desc:d.desc,status:d.status}));
+  log.innerText = JSON.stringify(data,null,2);
+  // Save to local storage
+  saveProjects(data);
+  renderProjects();
+  log.innerText += '\n\nSaved to localStorage.';
+});
+document.getElementById('clearLocal').addEventListener('click', ()=>{ localStorage.removeItem(STORAGE_KEY); renderProjects(); document.getElementById('mockLog').innerText='Local cleared'; });
+
+/* perf check simple */
+document.getElementById('perfRun').addEventListener('click', async ()=>{
+  const el = document.getElementById('perfResult'); el.innerText='Running...';
+  const t0 = performance.now();
+  // simulate some heavy front-end tasks
+  for(let i=0;i<200000;i++){ Math.sqrt(i); }
+  const t1 = performance.now();
+  el.innerText = `Snapshot done. CPU work: ${(t1-t0).toFixed(0)}ms. DOM nodes: ${document.getElementsByTagName('*').length}`;
+});
+
+/* simple banner generation via canvas (Webflow+Custom Code theme + Gig) */
+const bannerCanvas = document.getElementById('bannerCanvas');
+const bannerCtx = bannerCanvas.getContext('2d');
+
+function drawBanner(text){
+  // clear
+  bannerCtx.clearRect(0,0,bannerCanvas.width,bannerCanvas.height);
+  // background
+  bannerCtx.fillStyle = '#f5f7fb';
+  bannerCtx.fillRect(0,0,bannerCanvas.width,bannerCanvas.height);
+  // left circle avatar
+  bannerCtx.fillStyle = '#dbefff';
+  bannerCtx.beginPath();
+  bannerCtx.arc(120,120,80,0,Math.PI*2);
+  bannerCtx.fill();
+  bannerCtx.fillStyle = '#243b55';
+  bannerCtx.font = 'bold 48px Inter, Arial';
+  bannerCtx.fillText('TS',86,142);
+  // main text
+  bannerCtx.fillStyle = '#071018';
+  bannerCtx.font = 'bold 54px Inter, Arial';
+  bannerCtx.fillText(text,240,120);
+  // sub
+  bannerCtx.font = '20px Inter, Arial';
+  bannerCtx.fillStyle = '#405768';
+  bannerCtx.fillText('Webflow + Custom Code • Fast Delivery',240,160);
+  // button
+  bannerCtx.fillStyle = '#2dd4bf';
+  bannerCtx.fillRect(240,200,300,52);
+  bannerCtx.fillStyle = '#021012';
+  bannerCtx.font = 'bold 20px Inter, Arial';
+  bannerCtx.fillText('Hire @TheSafe',270,236);
+}
+document.getElementById('createBanner').addEventListener('click', ()=>{
+  const text = document.getElementById('bannerText').value || 'TheSafe — Pro Website Dev';
+  drawBanner(text);
+});
+document.getElementById('downloadBanner').addEventListener('click', ()=>{
+  const a = document.createElement('a'); a.href = bannerCanvas.toDataURL('image/png'); a.download='gig_banner.png'; a.click();
+});
+document.getElementById('btnDownloadBanner').addEventListener('click', ()=> {
+  document.getElementById('bannerText').value = 'Webflow + Custom Code';
+  drawBanner('Webflow + Custom Code');
+  setTimeout(()=> document.getElementById('downloadBanner').click(),200);
+});
+
+/* other banner generators */
+document.getElementById('genBanner').addEventListener('click', ()=> {
+  document.getElementById('bannerText').value = '@TheSafe — Professional Website Development';
+  drawBanner('@TheSafe — Professional Website Development');
+});
+document.getElementById('genOffers').addEventListener('click', ()=> {
+  document.getElementById('bannerText').value = 'Basic • Standard • Premium';
+  drawBanner('Basic • Standard • Premium');
+});
+document.getElementById('btnDownloadBanner').addEventListener('click', ()=> document.getElementById('downloadBanner').click());
+
+// Download Webflow+Code banner quick
+document.getElementById('btnDownloadBanner').addEventListener('click', ()=> {
+  drawBanner('Webflow + Custom Code');
+  setTimeout(()=> document.getElementById('downloadBanner').click(),150);
+});
+
+/* quick utilities */
+function sleep(ms){ return new Promise(r=>setTimeout(r,ms)); }
+function escapeHtml(s){ if(!s) return ''; return s.replace(/[&<>"']/g, c=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* Demo: generate initial projects if none */
+if(!localStorage.getItem(STORAGE_KEY)){ saveProjects(DEFAULT_PROJECTS); renderProjects(); }
+
+/* simple contact actions */
+document.getElementById('getQuote').addEventListener('click', ()=> openContactModal('Quick Quote Request'));
+document.getElementById('viewPortfolio').addEventListener('click', ()=> openSection('projects'));
+
+/* heavy JS features added: local storage, canvas generator, mock API, perf check, dynamic offers, price calc, project CRUD, modal editing, export/import */
+
+</script>
 </body>
 </html>
