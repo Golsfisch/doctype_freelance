@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TheSafeCode – Next-Gen Development</title>
+<title>TheSafeCode – Professional Frontend Developer</title>
 
 <style>
-/* --------------------------
-   GLOBAL STYLES
---------------------------- */
+/* ---------------------------------
+   GLOBAL COLORS & FONTS
+---------------------------------- */
 :root {
-    --bg: #0d1117;
-    --card: #161b22;
-    --text: #e6edf3;
-    --primary: #3b82f6;
+    --bg: #0b0f19;
+    --card: #141a2a;
+    --text: #e2e8f0;
+    --primary: #4169e1; /* Royal Blue */
+    --accent: #5ea8ff;
 }
 
 body {
@@ -21,87 +22,108 @@ body {
     background: var(--bg);
     color: var(--text);
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
-/* Header */
+/* ---------------------------------
+   HEADER
+---------------------------------- */
 header {
-    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 40px;
+    background: rgba(10, 10, 20, 0.7);
+    backdrop-filter: blur(6px);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(6px);
-    position: fixed;
-    width: 100%;
-    top: 0;
+    z-index: 20;
 }
 
 .logo {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: bold;
+    color: var(--accent);
     cursor: pointer;
 }
 
 nav a {
-    margin-left: 20px;
+    margin-left: 25px;
+    text-decoration: none;
     color: var(--text);
     opacity: 0.75;
-    text-decoration: none;
 }
-nav a:hover { opacity: 1; }
+nav a:hover {
+    opacity: 1;
+}
 
-/* Main Hero */
+/* ---------------------------------
+   HERO SECTION
+---------------------------------- */
 .hero {
-    padding: 180px 40px 120px;
+    padding: 180px 40px 140px;
 }
 .hero h1 {
-    font-size: 50px;
+    font-size: 52px;
     margin-bottom: 10px;
 }
 .hero p {
     font-size: 20px;
-    opacity: 0.7;
+    opacity: 0.75;
+    max-width: 600px;
 }
 
-/* Buttons */
+/* BUTTON */
 .btn {
-    padding: 12px 28px;
-    background: var(--primary);
-    border: none;
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 16px;
     border-radius: 8px;
-    color: #fff;
+    border: none;
+    background: var(--primary);
+    color: white;
     cursor: pointer;
 }
-.btn:hover { opacity: 0.8; }
+.btn:hover {
+    background: var(--accent);
+}
 
-/* Sections */
+/* ---------------------------------
+   SECTIONS & CARDS
+---------------------------------- */
 .section {
     padding: 100px 40px;
 }
+
 h2 {
     font-size: 32px;
     margin-bottom: 20px;
 }
+
 .card {
     background: var(--card);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 15px;
+    border: 1px solid #202534;
 }
 
-/* Template Preview Grid */
+/* Template Grid */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 20px;
 }
 
-/* Password Box */
+/* ---------------------------------
+   PASSWORD SCREEN
+---------------------------------- */
 #passwordScreen {
     position: fixed;
     top:0; left:0;
     width: 100%; height: 100%;
-    background: #000c;
+    background: #000a;
     backdrop-filter: blur(6px);
     display: none;
     align-items: center; justify-content: center;
@@ -110,141 +132,167 @@ h2 {
 .pass-box {
     background: var(--card);
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 14px;
     text-align: center;
+    border: 1px solid #2a3248;
 }
 .pass-box input {
-    width: 250px;
+    width: 260px;
     padding: 10px;
-    border: none;
     border-radius: 6px;
+    border: none;
     margin-bottom: 20px;
+    background: #0f1421;
+    color: var(--text);
 }
-.pass-box button { width: 100%; }
+.pass-btns {
+    display: flex;
+    gap: 10px;
+}
 
-/* Hidden template sections */
-.template-page { display: none; }
+/* ---------------------------------
+   TEMPLATE PAGES
+---------------------------------- */
+.template-page {
+    display: none;
+    padding-top: 120px;
+}
+.template-page h1 {
+    padding: 0 40px;
+}
+.template-page p {
+    padding: 0 40px;
+}
 </style>
-
 </head>
 <body>
 
 <header>
     <div class="logo" onclick="location.reload()">TheSafeCode</div>
     <nav>
-        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
         <a href="#templates">Templates</a>
-        <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<!-- MAIN PAGE -->
 <div id="mainPage">
 
 <section class="hero">
-    <h1>Next-Gen Web Development</h1>
-    <p>I build high-performance websites, modern interfaces and secure JS systems.</p>
-    <button class="btn" onclick="openPassword()">Access Templates</button>
+    <h1>Advanced Frontend Development & Secure JS Engineering</h1>
+    <p>
+        I build high-performance websites and systems using clean HTML, CSS and JavaScript.
+        Fast delivery, clean code, perfect structure – ideal for modern business websites.
+    </p>
+    <button class="btn" onclick="openPassword()">Access Client Templates</button>
 </section>
 
-<section class="section" id="services">
-    <h2>Services</h2>
-    <div class="card">Full Website Development</div>
-    <div class="card">Frontend UI/UX Engineering</div>
-    <div class="card">Secure JavaScript Applications</div>
+<section class="section" id="skills">
+    <h2>Core Skills</h2>
+
+    <div class="card">HTML5, CSS3, JavaScript (Vanilla / ES6+)</div>
+    <div class="card">Responsive Page Development</div>
+    <div class="card">Full Frontend Website Creation</div>
+    <div class="card">Custom Animations, Dynamic JS Functions</div>
+    <div class="card">Client Pages, Business Landing Pages</div>
+    <div class="card">Secure JS Password Protection (Frontend)</div>
+</section>
+
+<section class="section" id="projects">
+    <h2>Project Directory</h2>
+    <p>(You can expand this later)</p>
+
+    <div class="card">Project #1 – Corporate Website</div>
+    <div class="card">Project #2 – Real Estate Landing</div>
+    <div class="card">Project #3 – Personal Portfolio</div>
 </section>
 
 <section class="section" id="templates">
-    <h2>Client Templates</h2>
-    <p>Access requires password.</p>
+    <h2>Client Templates (Password Protected)</h2>
 
     <div class="grid">
-        <div class="card">Template A – Business Landing</div>
-        <div class="card">Template B – E-Commerce Product Page</div>
-        <div class="card">Template C – Personal Branding Page</div>
+        <div class="card">Template A – Business Website</div>
+        <div class="card">Template B – Product Page</div>
+        <div class="card">Template C – Personal Page</div>
     </div>
-</section>
-
-<section class="section" id="contact">
-    <h2>Contact</h2>
-    <p>E-Mail: <b>contact@thesafecode.dev</b></p>
-    <button class="btn">Send Message</button>
 </section>
 
 </div>
 
-<!-- PASSWORD SCREEN -->
+<!-- PASSWORD Login -->
 <div id="passwordScreen">
     <div class="pass-box">
-        <h3>Enter Access Password</h3>
-        <input type="password" id="passInput" placeholder="Password"><br>
-        <button class="btn" onclick="checkPassword()">Unlock</button>
+        <h3>Enter Password</h3>
+        <input type="password" id="passInput" placeholder="Password">
+
+        <div class="pass-btns">
+            <button class="btn" onclick="checkPassword()">Unlock</button>
+            <button class="btn" onclick="closePassword()">Back</button>
+        </div>
     </div>
 </div>
 
 <!-- TEMPLATE A -->
 <div id="templateA" class="template-page">
-    <section class="hero">
-        <h1>Template A – Business Landing</h1>
-        <p>Professional, clean and modern business introduction page.</p>
-        <button class="btn" onclick="backToMain()">Back</button>
-    </section>
+    <h1>Template A – Business Website</h1>
+    <p>Clean business landing page template.</p>
+    <button class="btn" onclick="backToMain()">Back to Main</button>
 </div>
 
 <!-- TEMPLATE B -->
 <div id="templateB" class="template-page">
-    <section class="hero">
-        <h1>Template B – E-Commerce Product Page</h1>
-        <p>Optimized sales page for products and offers.</p>
-        <button class="btn" onclick="backToMain()">Back</button>
-    </section>
+    <h1>Template B – Product Page</h1>
+    <p>Sell products with a simple fast layout.</p>
+    <button class="btn" onclick="backToMain()">Back to Main</button>
 </div>
 
 <!-- TEMPLATE C -->
 <div id="templateC" class="template-page">
-    <section class="hero">
-        <h1>Template C – Personal Branding Page</h1>
-        <p>Minimal, modern and stylish portfolio/profile presentation.</p>
-        <button class="btn" onclick="backToMain()">Back</button>
-    </section>
+    <h1>Template C – Personal Portfolio</h1>
+    <p>Minimal personal branding or portfolio page.</p>
+    <button class="btn" onclick="backToMain()">Back to Main</button>
 </div>
 
 <script>
-/* PASSWORD PROTECTION */
-const PASSWORD = "safe123"; // <<< Dein Passwort hier
+/* PASSWORD SYSTEM */
+const PASSWORD = "safe123";
 
 function openPassword() {
     document.getElementById("passwordScreen").style.display = "flex";
 }
 
+function closePassword() {
+    document.getElementById("passwordScreen").style.display = "none";
+}
+
 function checkPassword() {
-    const user = document.getElementById("passInput").value;
-    if (user === PASSWORD) {
-        document.getElementById("passwordScreen").style.display = "none";
-        showTemplateSelection();
+    const userInput = document.getElementById("passInput").value;
+
+    if (userInput === PASSWORD) {
+        closePassword();
+        selectTemplate();
     } else {
-        alert("Wrong password!");
+        alert("Incorrect password");
     }
 }
 
-/* After unlock → let user choose template */
-function showTemplateSelection() {
-    let choice = prompt("Which template? A / B / C").toLowerCase();
+function selectTemplate() {
+    let t = prompt("Select Template: A / B / C").toLowerCase();
 
     document.getElementById("mainPage").style.display = "none";
 
-    if (choice === "a") document.getElementById("templateA").style.display = "block";
-    else if (choice === "b") document.getElementById("templateB").style.display = "block";
-    else if (choice === "c") document.getElementById("templateC").style.display = "block";
+    if (t === "a") document.getElementById("templateA").style.display = "block";
+    else if (t === "b") document.getElementById("templateB").style.display = "block";
+    else if (t === "c") document.getElementById("templateC").style.display = "block";
     else {
-        alert("Invalid");
+        alert("Invalid choice.");
         location.reload();
     }
 }
 
 function backToMain() {
-    document.querySelectorAll(".template-page").forEach(t => t.style.display="none");
-    document.getElementById("mainPage").style.display="block";
+    document.querySelectorAll(".template-page").forEach(p => p.style.display = "none");
+    document.getElementById("mainPage").style.display = "block";
 }
 </script>
 
