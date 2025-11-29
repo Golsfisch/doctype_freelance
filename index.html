@@ -1,262 +1,361 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TheSafeCode – NextGen Landing</title>
-
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TheSafeCode — Website Development & Frontend • Project Directory</title>
 <style>
-/* ----------------------------------
-   COLOR SCHEME (from your landing)
----------------------------------- */
-:root {
-  --bg-dark: #0d0f17;
-  --bg-darker: #090b11;
-  --accent: #4ef0c3;
-  --accent-soft: rgba(78, 240, 195, 0.15);
-  --text-light: #f8f9fc;
-  --text-dim: #9da4b8;
-  --card-bg: #11131c;
-  --card-border: rgba(255,255,255,0.06);
-  --gradient: linear-gradient(135deg, #4ef0c3 0%, #2dbfa0 100%);
-  --radius: 16px;
-  --transition: 0.25s ease;
-}
+  /* =========================
+     THEME - DARK / NEON
+     ========================= */
+  :root{
+    --bg:#0b0f14;
+    --card:#0f1720;
+    --muted:#9aa4b2;
+    --accent:#2dd4bf;
+    --accent-2:#60a5fa;
+    --text:#e6eef3;
+    --radius:14px;
+    --glass: rgba(255,255,255,0.03);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(180deg,var(--bg),#071018);color:var(--text);-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
 
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
+  /* Header */
+  header{position:fixed;left:0;right:0;top:0;height:72px;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;background:rgba(3,6,10,0.55);backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.03);z-index:999;}
+  .brand{display:flex;align-items:center;gap:12px;cursor:pointer}
+  .logoBox{width:46px;height:46;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:#021;font-weight:800}
+  .brand h1{font-size:1.05rem;margin:0}
+  nav{display:flex;gap:12px;align-items:center}
+  nav button{background:transparent;border:1px solid transparent;color:var(--muted);padding:8px 12px;border-radius:10px;cursor:pointer}
+  nav button:hover{color:var(--text);border-color:rgba(255,255,255,0.03)}
 
-body {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  overflow-x: hidden;
-}
+  /* Layout */
+  .wrap{max-width:1100px;margin:96px auto 60px;padding:20px}
+  section{margin-bottom:28px}
+  .card{background:linear-gradient(180deg,var(--card),rgba(10,12,15,0.5));padding:16px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);box-shadow:0 6px 24px rgba(0,0,0,0.5)}
+  h2{margin:0 0 12px 0}
 
-/* ----------------------------------
-   HEADER + NAV
----------------------------------- */
-header {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding: 24px 40px;
-  background: var(--bg-darker);
-  border-bottom:1px solid var(--card-border);
-  position:sticky;
-  top:0;
-  z-index:20;
-}
+  /* HERO */
+  .hero{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center}
+  .hero .left h2{font-size:1.9rem}
+  .hero p{color:var(--muted);margin-top:8px;line-height:1.5}
+  .ctaRow{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{padding:12px 18px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+  .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
 
-.logo {
-  font-size:1.8rem;
-  font-weight:700;
-  color: var(--accent);
-  cursor:pointer;
-  transition: var(--transition);
-}
-.logo:hover { opacity: 0.7; }
+  /* SKILLS */
+  .skillsGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+  .skill{padding:12px;border-radius:10px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);text-align:center}
 
-nav a {
-  margin-left: 32px;
-  font-size:1rem;
-  color: var(--text-light);
-  text-decoration:none;
-  transition: var(--transition);
-}
-nav a:hover { color: var(--accent); }
+  /* PROJECT DIRECTORY */
+  .proj-controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+  .input,select{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--text)}
+  .proj-list{display:grid;gap:12px}
+  .proj-item{display:flex;justify-content:space-between;align-items:flex-start;padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02)}
+  .proj-left{max-width:75%}
+  .proj-title{font-weight:800;margin-bottom:6px}
+  .proj-desc{color:var(--muted);margin-bottom:10px}
+  .tag{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;font-size:.85rem}
+  .tag.done{background:var(--accent);color:#012}
+  .tag.progress{background:#ffd166;color:#222}
+  .proj-actions{display:flex;gap:8px}
 
-/* ----------------------------------
-   HERO
----------------------------------- */
-.hero {
-  text-align:center;
-  padding: 160px 20px 120px;
-  background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
-}
-
-.hero h1 {
-  font-size:3.4rem;
-  line-height:1.1;
-  margin-bottom:20px;
-}
-
-.hero p {
-  font-size:1.2rem;
-  color: var(--text-dim);
-  max-width:700px;
-  margin:auto;
-  margin-bottom:40px;
-}
-
-.btn-main {
-  display:inline-block;
-  padding:16px 36px;
-  border-radius:var(--radius);
-  background: var(--gradient);
-  color:#000;
-  font-weight:700;
-  text-decoration:none;
-  font-size:1.1rem;
-  transition: var(--transition);
-}
-.btn-main:hover {
-  opacity:0.85;
-  transform:scale(1.03);
-}
-
-/* ----------------------------------
-   SERVICES SECTION
----------------------------------- */
-.section {
-  padding:120px 40px;
-  max-width:1300px;
-  margin:auto;
-}
-
-.section h2 {
-  font-size:2.6rem;
-  margin-bottom:40px;
-  text-align:center;
-}
-
-.services-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap:32px;
-}
-
-.service-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  padding:32px;
-  border-radius: var(--radius);
-  transition: var(--transition);
-}
-.service-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-}
-
-.service-card h3 {
-  margin-bottom:12px;
-  font-size:1.5rem;
-}
-
-.service-card p {
-  color: var(--text-dim);
-  line-height:1.6;
-}
-
-/* ----------------------------------
-   FOOTER
----------------------------------- */
-footer {
-  text-align:center;
-  padding:40px;
-  color: var(--text-dim);
-}
-
-/* ----------------------------------
-   ANIMATION (JS hooks)
----------------------------------- */
-.fade-in {
-  opacity:0;
-  transform:translateY(20px);
-  transition: 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity:1;
-  transform:translateY(0px);
-}
+  /* small */
+  .muted{color:var(--muted)}
+  footer{text-align:center;padding:24px;color:var(--muted);margin-top:18px}
+  @media(max-width:900px){ .hero{grid-template-columns:1fr} .wrap{padding:12px} nav{display:none} }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo" id="logoBtn">thesafecode</div>
+  <div class="brand" id="reloadLogo" title="Reload page">
+    <div class="logoBox">TS</div>
+    <div>
+      <h1>@thesafecode</h1>
+      <div class="muted" style="font-size:0.8rem;margin-top:2px">website development • frontend</div>
+    </div>
+  </div>
+
   <nav>
-    <a href="#services">Services</a>
-    <a href="#contact">Contact</a>
+    <button onclick="scrollTo('hero')">Home</button>
+    <button onclick="scrollTo('skills')">Skills</button>
+    <button onclick="scrollTo('projects')">Projects</button>
+    <button onclick="scrollTo('contact')">Contact</button>
   </nav>
 </header>
 
-<section class="hero fade-in">
-  <h1>Next-Gen Web Development<br>Engineered for Speed & Performance</h1>
-  <p>Premium landing pages, SaaS dashboards, full-stack apps & automations.  
-     Built with cutting-edge JavaScript, security-first architecture & pixel-perfect UI/UX.</p>
-  <a href="#services" class="btn-main">View Services</a>
-</section>
+<div class="wrap">
 
-<section class="section" id="services">
-  <h2>What I Offer</h2>
-  <div class="services-grid">
-
-    <div class="service-card fade-in">
-      <h3>🔥 Ultra-Fast Landing Pages</h3>
-      <p>Lightning-optimized Webflow + Custom Code + JS-powered animations.</p>
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="card left">
+      <h2>Professional Website Development & Frontend Engineering</h2>
+      <p>I build fast, accessible and secure frontends — landing pages, Webflow + custom code, SPAs, and UI systems. Pixel-perfect conversions from Figma to production-ready HTML/CSS/JS.</p>
+      <div class="ctaRow">
+        <button class="btn btn-primary" onclick="scrollTo('projects')">View Projects</button>
+        <button class="btn btn-ghost" onclick="openAddProject()">Add Project</button>
+      </div>
     </div>
 
-    <div class="service-card fade-in">
-      <h3>💻 Full Stack Development</h3>
-      <p>High-security, scalable, API-driven web apps with maximum performance.</p>
+    <div class="card right">
+      <h3>Quick Info</h3>
+      <p class="muted">Services: Website Development • Frontend • Webflow • JS Integrations</p>
+      <div style="margin-top:10px">
+        <div><strong>Rate:</strong> negotiable (set in package)</div>
+        <div style="margin-top:8px"><strong>Delivery:</strong> fast-turn options available</div>
+      </div>
     </div>
+  </section>
 
-    <div class="service-card fade-in">
-      <h3>🚀 Fiverr / Freelancer Profile Setup</h3>
-      <p>Banner creation, gig optimization & SEO structure to maximize reach.</p>
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="card">
+      <h2>Skills — Website development & Frontend</h2>
+      <div class="skillsGrid" id="skillsGrid">
+        <!-- populated by JS -->
+      </div>
     </div>
+  </section>
 
-    <div class="service-card fade-in">
-      <h3>⚡ Custom JavaScript Solutions</h3>
-      <p>Automation, dynamic UI systems, dashboards, forms, validators & more.</p>
+  <!-- PROJECT DIRECTORY -->
+  <section id="projects">
+    <div class="card">
+      <h2>Project Directory</h2>
+
+      <div class="proj-controls" style="margin-top:12px">
+        <input id="searchInput" class="input" placeholder="Search projects..." oninput="renderProjects()">
+        <select id="filterStatus" class="input" onchange="renderProjects()">
+          <option value="all">All</option>
+          <option value="done">Finished</option>
+          <option value="progress">In Progress</option>
+        </select>
+        <select id="sortBy" class="input" onchange="renderProjects()">
+          <option value="new">Newest</option>
+          <option value="title">Title A–Z</option>
+        </select>
+        <div style="margin-left:auto;display:flex;gap:8px">
+          <button class="btn btn-ghost" onclick="exportJSON()">Export JSON</button>
+          <button class="btn btn-ghost" onclick="importJSON()">Import JSON</button>
+          <button class="btn btn-primary" onclick="openAddProject()">New Project</button>
+        </div>
+      </div>
+
+      <div id="projList" class="proj-list" style="margin-top:12px">
+        <!-- project items injected by JS -->
+      </div>
+      <div id="projPager" style="margin-top:12px" class="muted"></div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="card">
+      <h2>Contact</h2>
+      <p class="muted">Email: <strong>yourmail@example.com</strong></p>
+      <p class="muted">Short message for clients: include project type, deadline, and preferred budget.</p>
+    </div>
+  </section>
 
-<footer id="contact">
-  © 2025 thesafecode — Premium Web Development
-</footer>
+  <footer>© 2025 TheSafeCode — Frontend & Website Development</footer>
+</div>
+
+<!-- SIMPLE MODAL ROOT -->
+<div id="modalRoot"></div>
 
 <script>
-/* -------------------------------------
-   JS – FULL PAGE RELOAD CLICK
-------------------------------------- */
-document.getElementById("logoBtn").addEventListener("click", () => {
-  location.reload();
-});
+/* ============================
+   App: Projects + Skills
+   Single file HTML/CSS/JS
+   ============================ */
 
-/* -------------------------------------
-   JS – SCROLL ANIMATION
-------------------------------------- */
-const faders = document.querySelectorAll(".fade-in");
+/* ---------- Data & State ---------- */
+const SKILLS = [
+  'HTML5', 'CSS3', 'JavaScript (ES6+)', 'Responsive Design',
+  'Figma → HTML', 'Webflow + Custom Code', 'Performance Optimization',
+  'Accessibility (WCAG)', 'UI/UX', 'API Integration', 'SPA / JS Components'
+];
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
+const STORAGE_KEY = 'ts_projects_v2';
+let state = {
+  projects: JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || [
+    { id: id(), title: 'AAA | Modern Landing Page', desc: 'One-page high-conversion landing', status: 'done', created: Date.now() - 86400000 },
+    { id: id(), title: 'AAA | Realty Template', desc: 'Property listing + gallery', status: 'progress', created: Date.now() - 3600000 },
+  ],
+  page: 1,
+  pageSize: 8
+};
+
+/* ---------- Utilities ---------- */
+function id(){ return 'p_'+Math.random().toString(36).slice(2,9); }
+function q(sel){ return document.querySelector(sel); }
+function qa(sel){ return Array.from(document.querySelectorAll(sel)); }
+function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state.projects)); }
+
+/* ---------- UI Helpers ---------- */
+function scrollTo(id){ document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'}); }
+document.getElementById('reloadLogo').addEventListener('click', ()=> location.reload());
+
+/* ---------- Render Skills ---------- */
+function renderSkills(){
+  const el = q('#skillsGrid'); el.innerHTML = '';
+  SKILLS.forEach(s=>{
+    const d = document.createElement('div'); d.className='skill'; d.innerText = s;
+    el.appendChild(d);
   });
-}, { threshold: 0.2 });
+}
+renderSkills();
 
-faders.forEach(el => observer.observe(el));
+/* ---------- Projects Rendering ---------- */
+function renderProjects(){
+  const list = q('#projList'); list.innerHTML = '';
+  const search = q('#searchInput').value.trim().toLowerCase();
+  const filter = q('#filterStatus').value;
+  const sortBy = q('#sortBy').value;
 
-/* -------------------------------------
-   JS – Smooth Scroll (nav)
-------------------------------------- */
-document.querySelectorAll("nav a").forEach(a => {
-  a.addEventListener("click", e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute("href"));
-    window.scrollTo({
-      top: target.offsetTop - 80,
-      behavior: "smooth"
-    });
+  let items = [...state.projects];
+  if(filter !== 'all') items = items.filter(p => p.status === filter);
+  if(search) items = items.filter(p => (p.title + ' ' + p.desc).toLowerCase().includes(search));
+  if(sortBy === 'title') items.sort((a,b)=> a.title.localeCompare(b.title));
+  else items.sort((a,b)=> b.created - a.created);
+
+  const total = items.length;
+  const pages = Math.max(1, Math.ceil(total / state.pageSize));
+  if(state.page > pages) state.page = pages;
+  const start = (state.page - 1) * state.pageSize;
+  const paged = items.slice(start, start + state.pageSize);
+
+  paged.forEach(p=>{
+    const el = document.createElement('div'); el.className='proj-item';
+    const left = document.createElement('div'); left.className='proj-left';
+    const title = document.createElement('div'); title.className='proj-title'; title.innerText = p.title;
+    const desc = document.createElement('div'); desc.className='proj-desc'; desc.innerText = p.desc;
+    left.appendChild(title); left.appendChild(desc);
+
+    const right = document.createElement('div'); right.style.textAlign='right';
+    const tag = document.createElement('div'); tag.className = 'tag ' + (p.status==='done'?'done':'progress'); tag.innerText = p.status==='done'?'Finished':'In Progress';
+    const actions = document.createElement('div'); actions.className='proj-actions';
+    const btnEdit = document.createElement('button'); btnEdit.className='btn btn-ghost'; btnEdit.innerText='Edit'; btnEdit.onclick = ()=> openEditProject(p.id);
+    const btnDel = document.createElement('button'); btnDel.className='btn btn-ghost'; btnDel.innerText='Delete'; btnDel.onclick = ()=> deleteProject(p.id);
+    actions.appendChild(btnEdit); actions.appendChild(btnDel);
+    right.appendChild(tag); right.appendChild(actions);
+
+    el.appendChild(left); el.appendChild(right);
+    list.appendChild(el);
   });
-});
+
+  // pager
+  const pager = q('#projPager'); pager.innerHTML = '';
+  pager.innerText = `Showing ${Math.min(total, start+1)}–${Math.min(total, start + paged.length)} of ${total}`;
+  const nav = document.createElement('div'); nav.style.marginTop='8px';
+  if(state.page > 1){
+    const pbtn = document.createElement('button'); pbtn.className='btn btn-ghost'; pbtn.innerText='Prev'; pbtn.onclick = ()=> { state.page--; renderProjects(); };
+    nav.appendChild(pbtn);
+  }
+  if(state.page < pages){
+    const nbtn = document.createElement('button'); nbtn.className='btn btn-ghost'; nbtn.innerText='Next'; nbtn.onclick = ()=> { state.page++; renderProjects(); };
+    nav.appendChild(nbtn);
+  }
+  pager.appendChild(nav);
+}
+
+/* ---------- CRUD ---------- */
+function openAddProject(){
+  showModal(`<div class="card" style="max-width:720px;margin:0 auto">
+    <h3>Add Project</h3>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+      <input id="m_title" class="input" placeholder="Title">
+      <textarea id="m_desc" class="input" placeholder="Short description"></textarea>
+      <label>Status:
+        <select id="m_status" class="input"><option value="progress">In Progress</option><option value="done">Finished</option></select>
+      </label>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:6px">
+        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="m_add">Add</button>
+      </div>
+    </div>
+  </div>`);
+  q('#m_add').addEventListener('click', ()=>{
+    const t = q('#m_title').value.trim(); const d = q('#m_desc').value.trim(); const s = q('#m_status').value;
+    if(!t) return alert('Title required');
+    state.projects.unshift({ id: id(), title: t, desc: d, status: s, created: Date.now() });
+    save(); closeModal(); renderProjects();
+  });
+}
+
+function openEditProject(pid){
+  const p = state.projects.find(x=>x.id===pid); if(!p) return alert('Not found');
+  showModal(`<div class="card" style="max-width:720px;margin:0 auto">
+    <h3>Edit Project</h3>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+      <input id="m_title" class="input" value="${escape(p.title)}">
+      <textarea id="m_desc" class="input">${escape(p.desc)}</textarea>
+      <label>Status:
+        <select id="m_status" class="input"><option value="progress">In Progress</option><option value="done">Finished</option></select>
+      </label>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:6px">
+        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-primary" id="m_save">Save</button>
+      </div>
+    </div>
+  </div>`);
+  q('#m_status').value = p.status;
+  q('#m_save').addEventListener('click', ()=>{
+    p.title = q('#m_title').value.trim(); p.desc = q('#m_desc').value.trim(); p.status = q('#m_status').value;
+    save(); closeModal(); renderProjects();
+  });
+}
+
+function deleteProject(pid){
+  if(!confirm('Delete project?')) return;
+  state.projects = state.projects.filter(p=>p.id!==pid); save(); renderProjects();
+}
+
+/* ---------- Export / Import ---------- */
+function exportJSON(){
+  const data = JSON.stringify(state.projects, null, 2);
+  const blob = new Blob([data], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href=url; a.download='projects.json'; a.click(); URL.revokeObjectURL(url);
+}
+function importJSON(){
+  const inp = document.createElement('input'); inp.type='file'; inp.accept='application/json';
+  inp.onchange = e => {
+    const f = e.target.files[0]; if(!f) return;
+    const reader = new FileReader(); reader.onload = ev => {
+      try {
+        const arr = JSON.parse(ev.target.result);
+        if(!Array.isArray(arr)) throw new Error('Invalid format');
+        // basic validation
+        arr.forEach(x=> { if(!x.id) x.id = id(); if(!x.title) x.title = 'Untitled'; if(!x.status) x.status='progress'; });
+        state.projects = [...arr, ...state.projects];
+        save(); renderProjects(); alert('Imported ' + arr.length + ' projects');
+      } catch(err){ alert('Import failed: ' + err.message); }
+    };
+    reader.readAsText(f);
+  };
+  inp.click();
+}
+
+/* ---------- Modal helpers ---------- */
+function showModal(html){
+  const root = q('#modalRoot'); root.innerHTML = `<div id="modalOverlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:9999;padding:18px">${html}</div>`;
+}
+function closeModal(){ q('#modalRoot').innerHTML = ''; }
+
+/* ---------- Escape helper ---------- */
+function escape(s){ return (s||'').replace(/[&<>"']/g, c=> ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+/* ---------- Init ---------- */
+renderProjects();
+
+/* Optional: quick sample generator (uncomment to create) */
+// for(let i=0;i<2;i++) state.projects.push({id:id(), title:'Sample '+(i+1), desc:'Demo', status: i%2? 'done':'progress', created: Date.now() - i*1000});
+// save(); renderProjects();
+
 </script>
-
 </body>
 </html>
