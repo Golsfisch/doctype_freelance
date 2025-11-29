@@ -3,246 +3,258 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TheSafeCode – NextGen Web Development</title>
+<title>TheSafeCode – NextGen Landing</title>
 
 <style>
-/* ================================
-   GLOBAL STYLE – DARK NEON THEME
-   ================================ */
+/* ----------------------------------
+   COLOR SCHEME (from your landing)
+---------------------------------- */
 :root {
-  --bg:#0a0a0f;
-  --card:#11121a;
-  --text:#e9ecf2;
-  --sub:#8b93a3;
-  --accent:#00f2ff;
-  --accent2:#6f00ff;
-  --radius:18px;
-  --shadow:0 0 22px rgba(0,255,255,0.25);
-  --trans:0.25s cubic-bezier(.4,0,.2,1);
+  --bg-dark: #0d0f17;
+  --bg-darker: #090b11;
+  --accent: #4ef0c3;
+  --accent-soft: rgba(78, 240, 195, 0.15);
+  --text-light: #f8f9fc;
+  --text-dim: #9da4b8;
+  --card-bg: #11131c;
+  --card-border: rgba(255,255,255,0.06);
+  --gradient: linear-gradient(135deg, #4ef0c3 0%, #2dbfa0 100%);
+  --radius: 16px;
+  --transition: 0.25s ease;
 }
+
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', sans-serif; }
 
 body {
-  margin:0;
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  overflow-x:hidden;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
 }
 
-/* NAVBAR */
-nav {
-  width:100%;
-  padding:20px 40px;
+/* ----------------------------------
+   HEADER + NAV
+---------------------------------- */
+header {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  position:fixed;
-  top:0;left:0;
-  background:rgba(10,10,15,0.7);
-  backdrop-filter:blur(14px);
-  z-index:1000;
+  padding: 24px 40px;
+  background: var(--bg-darker);
+  border-bottom:1px solid var(--card-border);
+  position:sticky;
+  top:0;
+  z-index:20;
 }
-nav .logo{
-  font-size:1.35rem;
+
+.logo {
+  font-size:1.8rem;
   font-weight:700;
-  letter-spacing:1px;
-}
-nav ul{
-  display:flex;
-  gap:20px;
-  list-style:none;
-}
-nav ul li{
+  color: var(--accent);
   cursor:pointer;
-  opacity:.85;
-  transition:var(--trans);
+  transition: var(--transition);
 }
-nav ul li:hover{
-  opacity:1;
-}
+.logo:hover { opacity: 0.7; }
 
-/* HERO */
-.hero{
-  padding-top:160px;
+nav a {
+  margin-left: 32px;
+  font-size:1rem;
+  color: var(--text-light);
+  text-decoration:none;
+  transition: var(--transition);
+}
+nav a:hover { color: var(--accent); }
+
+/* ----------------------------------
+   HERO
+---------------------------------- */
+.hero {
   text-align:center;
-  max-width:900px;
-  margin:0 auto;
+  padding: 160px 20px 120px;
+  background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
 }
-.hero h1{
-  font-size:3.2rem;
-  line-height:1.2;
+
+.hero h1 {
+  font-size:3.4rem;
+  line-height:1.1;
+  margin-bottom:20px;
 }
-.hero p{
-  color:var(--sub);
-  margin-top:10px;
+
+.hero p {
   font-size:1.2rem;
+  color: var(--text-dim);
+  max-width:700px;
+  margin:auto;
+  margin-bottom:40px;
 }
-.btn{
-  margin-top:30px;
-  padding:15px 32px;
-  font-size:1.15rem;
-  border:none;
+
+.btn-main {
+  display:inline-block;
+  padding:16px 36px;
   border-radius:var(--radius);
-  cursor:pointer;
+  background: var(--gradient);
   color:#000;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
-  box-shadow:var(--shadow);
-  transition:var(--trans);
+  font-weight:700;
+  text-decoration:none;
+  font-size:1.1rem;
+  transition: var(--transition);
 }
-.btn:hover{
-  transform:scale(1.05);
+.btn-main:hover {
+  opacity:0.85;
+  transform:scale(1.03);
 }
 
-/* SKILLS SECTION */
-.section{
-  max-width:1100px;
-  padding:80px 20px;
-  margin:0 auto;
+/* ----------------------------------
+   SERVICES SECTION
+---------------------------------- */
+.section {
+  padding:120px 40px;
+  max-width:1300px;
+  margin:auto;
 }
-.section h2{
-  margin-bottom:25px;
-  font-size:2.2rem;
+
+.section h2 {
+  font-size:2.6rem;
+  margin-bottom:40px;
+  text-align:center;
 }
-.skills-grid{
+
+.services-grid {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-.skill-card{
-  background:var(--card);
-  padding:20px;
-  border-radius:var(--radius);
-  border:1px solid rgba(255,255,255,0.07);
-  transition:var(--trans);
-}
-.skill-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 0 12px rgba(0,255,255,0.25);
+  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+  gap:32px;
 }
 
-/* PROJECTS */
-.project-card{
-  background:var(--card);
-  padding:20px;
-  border-radius:var(--radius);
-  margin-top:20px;
-  border:1px solid rgba(255,255,255,0.06);
+.service-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding:32px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
 }
 
-/* FOOTER */
-footer{
+.service-card h3 {
+  margin-bottom:12px;
+  font-size:1.5rem;
+}
+
+.service-card p {
+  color: var(--text-dim);
+  line-height:1.6;
+}
+
+/* ----------------------------------
+   FOOTER
+---------------------------------- */
+footer {
   text-align:center;
   padding:40px;
-  color:var(--sub);
-  margin-top:50px;
+  color: var(--text-dim);
 }
 
-/* SMOOTH FADE-IN */
-.fade{
+/* ----------------------------------
+   ANIMATION (JS hooks)
+---------------------------------- */
+.fade-in {
   opacity:0;
-  transform:translateY(25px);
-  transition:1s ease;
+  transform:translateY(20px);
+  transition: 0.8s ease-out;
 }
-.fade.show{
+
+.fade-in.visible {
   opacity:1;
-  transform:translateY(0);
+  transform:translateY(0px);
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">ander/thesafecode/@thesafe_Call me S.</div><a class="logo" href="">thesafecode</a>
-  <ul>
-    <li onclick="scrollToId('skills')">Skills</li>
-    <li onclick="scrollToId('projects')">Projects</li>
-    <li onclick="scrollToId('contact')">Contact</li>
-  </ul>
-</nav>
+<header>
+  <div class="logo" id="logoBtn">thesafecode</div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<section class="hero fade">
-  <h1>Next-Gen Web Developer<br>HTML • CSS • JS • Custom UI</h1>
-  <p>I build premium, fast, modern & secure websites with high-end interactions.</p>
-  <button class="btn" onclick="scrollToId('contact')">Hire Me</button>
+<section class="hero fade-in">
+  <h1>Next-Gen Web Development<br>Engineered for Speed & Performance</h1>
+  <p>Premium landing pages, SaaS dashboards, full-stack apps & automations.  
+     Built with cutting-edge JavaScript, security-first architecture & pixel-perfect UI/UX.</p>
+  <a href="#services" class="btn-main">View Services</a>
 </section>
 
-<section class="section fade" id="skills">
-  <h2>Skills & Technologies</h2>
-  <div class="skills-grid">
-    <div class="skill-card">HTML5 • Semantic Layouts</div>
-    <div class="skill-card">CSS3 • Animations • Flex/Grid</div>
-    <div class="skill-card">JavaScript ES6+</div>
-    <div class="skill-card">Webflow Custom Code</div>
-    <div class="skill-card">Responsive Design</div>
-    <div class="skill-card">UI/UX Wireframing</div>
-    <div class="skill-card">Landing Pages</div>
-    <div class="skill-card">Performance Optimization</div>
+<section class="section" id="services">
+  <h2>What I Offer</h2>
+  <div class="services-grid">
+
+    <div class="service-card fade-in">
+      <h3>🔥 Ultra-Fast Landing Pages</h3>
+      <p>Lightning-optimized Webflow + Custom Code + JS-powered animations.</p>
+    </div>
+
+    <div class="service-card fade-in">
+      <h3>💻 Full Stack Development</h3>
+      <p>High-security, scalable, API-driven web apps with maximum performance.</p>
+    </div>
+
+    <div class="service-card fade-in">
+      <h3>🚀 Fiverr / Freelancer Profile Setup</h3>
+      <p>Banner creation, gig optimization & SEO structure to maximize reach.</p>
+    </div>
+
+    <div class="service-card fade-in">
+      <h3>⚡ Custom JavaScript Solutions</h3>
+      <p>Automation, dynamic UI systems, dashboards, forms, validators & more.</p>
+    </div>
+
   </div>
 </section>
 
-<section class="section fade" id="projects">
-  <h2>Projects</h2>
-
-  <div class="project-card">Portfolio Website – Full Custom UI (Completed)</div>
-  <div class="project-card">Landing Page System – Multi-Page JS Navigation</div>
-  <div class="project-card">API-Ready Frontend Template (In Progress)</div>
-
-</section>
-
-<section class="section fade" id="contact">
-  <h2>Work With Me</h2>
-  <p>Email: <b>contact@thesafe.dev</b></p>
-  <button class="btn" onclick="alert('Thanks! I will contact you shortly.')">
-    Send Request
-  </button>
-</section>
-
-<footer>
-  © 2025 TheSafeCode — Premium Web Solutions
+<footer id="contact">
+  © 2025 thesafecode — Premium Web Development
 </footer>
 
 <script>
-/* ================================
-   SMOOTH SCROLL
-   ================================ */
-function scrollToId(id){
-  document.getElementById(id).scrollIntoView({behavior:"smooth"});
-}
+/* -------------------------------------
+   JS – FULL PAGE RELOAD CLICK
+------------------------------------- */
+document.getElementById("logoBtn").addEventListener("click", () => {
+  location.reload();
+});
 
-/* ================================
-   SCROLL FADE EFFECT
-   ================================ */
-const fadeElems = document.querySelectorAll(".fade");
-function showFade(){
-  fadeElems.forEach(el=>{
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 80){
-      el.classList.add("show");
+/* -------------------------------------
+   JS – SCROLL ANIMATION
+------------------------------------- */
+const faders = document.querySelectorAll(".fade-in");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      entry.target.classList.add("visible");
     }
   });
-}
-window.addEventListener("scroll",showFade);
-window.onload = showFade;
+}, { threshold: 0.2 });
 
-/* ================================
-   EXTRA: Neon Cursor Glow
-   ================================ */
-document.addEventListener("mousemove", (e)=>{
-  const glow = document.createElement("div");
-  glow.style.position="fixed";
-  glow.style.width="16px";
-  glow.style.height="16px";
-  glow.style.background="rgba(0,255,255,0.35)";
-  glow.style.borderRadius="50%";
-  glow.style.pointerEvents="none";
-  glow.style.left=e.clientX+"px";
-  glow.style.top=e.clientY+"px";
-  glow.style.transform="translate(-50%,-50%)";
-  glow.style.filter="blur(10px)";
-  glow.style.zIndex="9999";
-  document.body.appendChild(glow);
-  setTimeout(()=>glow.remove(),140);
+faders.forEach(el => observer.observe(el));
+
+/* -------------------------------------
+   JS – Smooth Scroll (nav)
+------------------------------------- */
+document.querySelectorAll("nav a").forEach(a => {
+  a.addEventListener("click", e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute("href"));
+    window.scrollTo({
+      top: target.offsetTop - 80,
+      behavior: "smooth"
+    });
+  });
 });
 </script>
 
