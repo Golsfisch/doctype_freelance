@@ -1,73 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TheSafeCode – Next-Gen Development</title>
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TheSafeCode – Next-Gen Development</title>
+
+<style>
+/* --------------------------
+   GLOBAL STYLES
+--------------------------- */
+:root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --text: #e6edf3;
+    --primary: #3b82f6;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+nav a {
+    margin-left: 20px;
+    color: var(--text);
+    opacity: 0.75;
+    text-decoration: none;
+}
+nav a:hover { opacity: 1; }
+
+/* Main Hero */
+.hero {
+    padding: 180px 40px 120px;
+}
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.hero p {
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 28px;
+    background: var(--primary);
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:hover { opacity: 0.8; }
+
+/* Sections */
+.section {
+    padding: 100px 40px;
+}
+h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Template Preview Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+
+/* Password Box */
+#passwordScreen {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; height: 100%;
+    background: #000c;
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center; justify-content: center;
+}
+
+.pass-box {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+}
+.pass-box input {
+    width: 250px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.pass-box button { width: 100%; }
+
+/* Hidden template sections */
+.template-page { display: none; }
+</style>
+
 </head>
 <body>
 
-    <header class="header">
-        <div class="logo" id="reloadTrigger">TheSafeCode</div>
+<header>
+    <div class="logo" onclick="location.reload()">TheSafeCode</div>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#templates">Templates</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-        <nav class="nav">
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<!-- MAIN PAGE -->
+<div id="mainPage">
 
+<section class="hero">
+    <h1>Next-Gen Web Development</h1>
+    <p>I build high-performance websites, modern interfaces and secure JS systems.</p>
+    <button class="btn" onclick="openPassword()">Access Templates</button>
+</section>
+
+<section class="section" id="services">
+    <h2>Services</h2>
+    <div class="card">Full Website Development</div>
+    <div class="card">Frontend UI/UX Engineering</div>
+    <div class="card">Secure JavaScript Applications</div>
+</section>
+
+<section class="section" id="templates">
+    <h2>Client Templates</h2>
+    <p>Access requires password.</p>
+
+    <div class="grid">
+        <div class="card">Template A – Business Landing</div>
+        <div class="card">Template B – E-Commerce Product Page</div>
+        <div class="card">Template C – Personal Branding Page</div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <h2>Contact</h2>
+    <p>E-Mail: <b>contact@thesafecode.dev</b></p>
+    <button class="btn">Send Message</button>
+</section>
+
+</div>
+
+<!-- PASSWORD SCREEN -->
+<div id="passwordScreen">
+    <div class="pass-box">
+        <h3>Enter Access Password</h3>
+        <input type="password" id="passInput" placeholder="Password"><br>
+        <button class="btn" onclick="checkPassword()">Unlock</button>
+    </div>
+</div>
+
+<!-- TEMPLATE A -->
+<div id="templateA" class="template-page">
     <section class="hero">
-        <h1 class="title">Next-Gen Web Development</h1>
-        <p class="subtitle">
-            High-performance websites, modern user interfaces and secure JavaScript apps built with precision and speed.
-        </p>
-        <button class="primary-btn" id="startBtn">Start Your Project</button>
+        <h1>Template A – Business Landing</h1>
+        <p>Professional, clean and modern business introduction page.</p>
+        <button class="btn" onclick="backToMain()">Back</button>
     </section>
+</div>
 
-    <section class="services" id="services">
-        <h2>My Services</h2>
-
-        <div class="service-grid">
-            <div class="service-card">
-                <h3>Full Website Development</h3>
-                <p>Fast, secure and scalable web experiences in modern codebases with clean UI/UX.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>Frontend Engineering</h3>
-                <p>Dynamic interfaces, animations, dashboards, and complete SPA environments.</p>
-            </div>
-
-            <div class="service-card">
-                <h3>Landing Pages & Funnels</h3>
-                <p>High-conversion landing pages built with optimization, clarity and speed.</p>
-            </div>
-        </div>
+<!-- TEMPLATE B -->
+<div id="templateB" class="template-page">
+    <section class="hero">
+        <h1>Template B – E-Commerce Product Page</h1>
+        <p>Optimized sales page for products and offers.</p>
+        <button class="btn" onclick="backToMain()">Back</button>
     </section>
+</div>
 
-    <section class="projects" id="projects">
-        <h2>Recent Projects</h2>
-
-        <div class="project-grid">
-            <div class="project-card">Modern SaaS Platform UI</div>
-            <div class="project-card">AI-Driven Dashboard</div>
-            <div class="project-card">High-Speed Landing Page</div>
-        </div>
+<!-- TEMPLATE C -->
+<div id="templateC" class="template-page">
+    <section class="hero">
+        <h1>Template C – Personal Branding Page</h1>
+        <p>Minimal, modern and stylish portfolio/profile presentation.</p>
+        <button class="btn" onclick="backToMain()">Back</button>
     </section>
+</div>
 
-    <section class="contact" id="contact">
-        <h2>Start Your Project</h2>
+<script>
+/* PASSWORD PROTECTION */
+const PASSWORD = "safe123"; // <<< Dein Passwort hier
 
-        <p>Email: <b>contact@thesafecode.dev</b></p>
-        <button class="primary-btn">Send Message</button>
-    </section>
+function openPassword() {
+    document.getElementById("passwordScreen").style.display = "flex";
+}
 
-    <footer class="footer">
-        © 2025 TheSafeCode — Next-Gen Engineering
-    </footer>
+function checkPassword() {
+    const user = document.getElementById("passInput").value;
+    if (user === PASSWORD) {
+        document.getElementById("passwordScreen").style.display = "none";
+        showTemplateSelection();
+    } else {
+        alert("Wrong password!");
+    }
+}
 
-    <script src="js/app.js"></script>
+/* After unlock → let user choose template */
+function showTemplateSelection() {
+    let choice = prompt("Which template? A / B / C").toLowerCase();
+
+    document.getElementById("mainPage").style.display = "none";
+
+    if (choice === "a") document.getElementById("templateA").style.display = "block";
+    else if (choice === "b") document.getElementById("templateB").style.display = "block";
+    else if (choice === "c") document.getElementById("templateC").style.display = "block";
+    else {
+        alert("Invalid");
+        location.reload();
+    }
+}
+
+function backToMain() {
+    document.querySelectorAll(".template-page").forEach(t => t.style.display="none");
+    document.getElementById("mainPage").style.display="block";
+}
+</script>
+
 </body>
 </html>
